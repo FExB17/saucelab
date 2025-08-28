@@ -33,7 +33,7 @@ def get_any(*names, default=None, required=False):
 BROWSER  = get_any("BROWSER", default="chromium")
 HEADLESS = str(get_any("HEADLESS", default="true")).lower() == "true"
 
-# App / Credentials (alias-tolerant)
+# App / Credentials
 BASE_URL          = get_any("BASE_URL", required=True)
 STANDARD_USER     = get_any("STANDARD_USER", required=True)
 PASSWORD          = get_any("PASSWORD", required=True)
