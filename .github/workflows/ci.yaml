@@ -1,5 +1,4 @@
 name: CI
-
 on:
   push:
     branches: [ main ]
@@ -8,13 +7,9 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -24,13 +19,21 @@ jobs:
           source .venv/bin/activate
           pip install -U pip
           pip install -r requirements.txt
+          python -m Browser.entry init
 
-      - name: Run Robot Framework tests
+      - name: Run Robot tests
+        env:
+          USERNAME: ${{ secrets.STANDARD_USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          LOCKED_OUT_USER: ${{ secrets.LOCKED_OUT_USER }}
+          INVALID_USER: ${{ INVALID_USER }}
+          INVALID_PASSWORD: ${{ INVALID_PASSWORD }}
+          BASE_URL: "https://www.saucedemo.com"
         run: |
           source .venv/bin/activate
           robot --outputdir reports tests/
 
-      - name: Upload Robot reports
+      - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
         with:

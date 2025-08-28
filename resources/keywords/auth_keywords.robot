@@ -4,8 +4,6 @@ Resource    ../pages/login_page.robot
 Resource    ../pages/inventory_page.robot
 Resource    ../pages/home_page.robot
 
-Variables    ../../variables/qa.yaml
-
 
 *** Keywords ***
 Login

@@ -1,5 +1,4 @@
 robot:
   outputdir: reports
   variablefiles:
-    - variables/qa.yaml
-
+    - variables/env_or_file.py

@@ -1,6 +1,6 @@
 *** Settings ***
 Library     Browser
-Library    ../../.venv/lib/python3.10/site-packages/robot/libraries/String.py
+Library    String
 
 
 *** Variables ***
