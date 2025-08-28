@@ -15,8 +15,8 @@ Login
     Click Login
 
 Login As Standard User
-    Fill username    ${USERS.standard.username}
-    Fill password    ${USERS.password}
+    Fill username    ${STANDARD_USER}
+    Fill password    ${PASSWORD}
     Click Login
 
 Verify Login Succeeds

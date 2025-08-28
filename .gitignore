@@ -24,6 +24,7 @@ traces/
 .env
 *.secret.*
 secrets/*
+variables/qa.yaml
 variables/*secret*.*
 variables/*.local.yaml
 

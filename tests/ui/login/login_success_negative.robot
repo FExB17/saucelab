@@ -7,12 +7,12 @@ Resource            ../../../resources/keywords/hooks.robot
 
 *** Test Cases *** 
 Invalid password shows message
-    Login    ${USERS.standard.username}   ${USERS.invalid.password}
+    Login    ${STANDARD_USER}   ${INVALID_PASSWORD}
      ${actual_error_message}=    Get Login Error Text
     Error Message Should Be     ${actual_error_message}    Epic sadface: Username and password do not match any user in this service
       
 
 Missing username shows message         
-    Login    ${EMPTY}   ${USERS.password}
+    Login    ${EMPTY}   ${PASSWORD}
      ${actual_error_message}=    Get Login Error Text
     Error Message Should Be     ${actual_error_message}    Epic sadface: Username is required
