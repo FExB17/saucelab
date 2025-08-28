@@ -1,6 +1,32 @@
+# Python / venv
 .venv/
-reports/
 __pycache__/
-.DS_Store
+*.py[cod]
+*.egg-info/
+pip-wheel-metadata/
 
-variables/
+# Robot Framework Outputs (immer zentral sammeln)
+reports/                 
+output.xml
+log.html
+report.html
+playwright-log.txt
+*output*
+logs/
+log/
+*.png                    
+*.webm                   
+*.zip                   
+trace/
+traces/
+
+# Env/Secrets
+.env
+*.secret.*
+secrets/*
+variables/*secret*.*
+variables/*.local.yaml
+
+# OS/IDE
+.DS_Store
+.vscode/settings.json
