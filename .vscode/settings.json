@@ -1,0 +1,13 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "robot.python.executable": "${workspaceFolder}/.venv/bin/python",
+  "robot.lint.robocop.enabled": false,
+  "robot.lint.robocop.executable": "${workspaceFolder}/.venv/bin/robocop",
+  "robot.lint.robocop.args": [
+    "-c",
+    "config/robocop.toml"
+  ],
+  "robot.formatting.provider": "robotidy",
+  "robot.formatting.robotidy.path": "${workspaceFolder}/.venv/bin/robotidy",
+  "editor.formatOnSave": true
+}

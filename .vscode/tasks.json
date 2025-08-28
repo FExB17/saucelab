@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Robot: Run Feature Suite (current folder)",
+      "type": "shell",
+      "options": { "cwd": "${workspaceFolder}" },
+      "command": "${workspaceFolder}/.venv/bin/robot",
+      "args": [
+        "-d", "reports/${workspaceFolderBasename}-${fileDirnameBasename}",
+        "${fileDirname}"
+      ]
+    },
+    {
+      "label": "Robot: Run All",
+      "type": "shell",
+      "options": { "cwd": "${workspaceFolder}" },
+      "command": "${workspaceFolder}/.venv/bin/robot",
+      "args": [
+        "-d", "reports/all",
+        "tests"
+      ]
+    }
+  ]
+}

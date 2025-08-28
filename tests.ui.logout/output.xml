@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.10.12 on linux)" generated="2025-08-23T21:12:17.002494" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/home/feb17/vscode/saucelab/tests">
+<kw name="Open Browser Session" owner="hooks" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-08-23T21:12:17.106610" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/home/feb17/vscode/saucelab/tests.ui.logout/browser/traces/temp/2696d3ef-7aeb-42bc-a36a-a21d7530f21a"}</msg>
+<msg time="2025-08-23T21:12:17.109501" level="INFO">Starting Browser process /home/feb17/vscode/saucelab/.venv/lib/python3.10/site-packages/Browser/wrapper/index.js using at 127.0.0.1:46687</msg>
+<msg time="2025-08-23T21:12:17.474601" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/home/feb17/vscode/saucelab/tests.ui.logout/browser/traces/temp/2696d3ef-7aeb-42bc-a36a-a21d7530f21a"}</msg>
+<arg>${BROWSER}</arg>
+<arg>headless=${HEADLESS}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-08-23T21:12:17.105986" elapsed="0.368773"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:17.105436" elapsed="0.369453"/>
+</kw>
+<suite id="s1-s1" name="Ui" source="/home/feb17/vscode/saucelab/tests/ui">
+<suite id="s1-s1-s1" name="Login" source="/home/feb17/vscode/saucelab/tests/ui/login">
+<suite id="s1-s1-s1-s1" name="Login Success" source="/home/feb17/vscode/saucelab/tests/ui/login/login_success.robot">
+<test id="s1-s1-s1-s1-t1" name="Login succeeds with valid credentials" line="13">
+<kw name="Open App" owner="hooks" type="SETUP">
+<kw name="New Context" owner="Browser">
+<msg time="2025-08-23T21:12:17.504036" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2025-08-23T21:12:17.513021" level="INFO">Successfully created context. </msg>
+<msg time="2025-08-23T21:12:17.513086" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-08-23T21:12:17.501943" elapsed="0.011285"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-23T21:12:17.995767" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-23T21:12:17.513419" elapsed="0.482716"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:17.501521" elapsed="0.494815"/>
+</kw>
+<kw name="Login" owner="auth_keywords">
+<kw name="Fill username" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:17.999592" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:17.998885" elapsed="0.032077"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-08-23T21:12:17.998378" elapsed="0.032707"/>
+</kw>
+<kw name="Fill password" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.032134" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.031658" elapsed="0.009082"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-08-23T21:12:18.031278" elapsed="0.009578"/>
+</kw>
+<kw name="Click Login" owner="login_page">
+<kw name="Click" owner="Browser">
+<msg time="2025-08-23T21:12:18.041834" level="INFO">Clicks the element 'id=login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.041371" elapsed="0.074054"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.041043" elapsed="0.074577"/>
+</kw>
+<arg>${USERS.standard.username}</arg>
+<arg>${USERS.password}</arg>
+<status status="PASS" start="2025-08-23T21:12:17.996789" elapsed="0.118917"/>
+</kw>
+<kw name="Verify Login Succeeds" owner="auth_keywords">
+<kw name="Wait Until Loaded" owner="inventory_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-08-23T21:12:18.126226" level="INFO">Waited for Element with selector css=[data-test="title"] at state visible</msg>
+<arg>${HEADING_PRODUCTS}</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.117708" elapsed="0.008791"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.117298" elapsed="0.009390"/>
+</kw>
+<kw name="Get Products Heading" owner="inventory_page">
+<kw name="Get Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.149324" level="INFO">Text: 'Products'</msg>
+<msg time="2025-08-23T21:12:18.149535" level="INFO">${text} = Products</msg>
+<var>${text}</var>
+<arg>${HEADING_PRODUCTS}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.127529" elapsed="0.022036"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-08-23T21:12:18.149666" elapsed="0.000106"/>
+</return>
+<msg time="2025-08-23T21:12:18.149955" level="INFO">${heading} = Products</msg>
+<var>${heading}</var>
+<status status="PASS" start="2025-08-23T21:12:18.127011" elapsed="0.022972"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${heading}</arg>
+<arg>${expected}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.150123" elapsed="0.000314"/>
+</kw>
+<arg>${DASHBOARD.HOME}</arg>
+<status status="PASS" start="2025-08-23T21:12:18.116101" elapsed="0.034407"/>
+</kw>
+<kw name="Cleanup Test" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST_STATUS}' == 'FAIL'</arg>
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.151102" elapsed="0.000260"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.156417" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:18.159501" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:18.162249" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.164588" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-08-23T21:12:18.165200" level="INFO">Switching context to context=ffaee7e8-e005-4f14-9704-4e8331e24aaf in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.170358" level="INFO">Successfully changed active context: context=ffaee7e8-e005-4f14-9704-4e8331e24aaf</msg>
+<msg time="2025-08-23T21:12:18.179823" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.151485" elapsed="0.028579"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.150786" elapsed="0.029528"/>
+</kw>
+<tag>component:ui</tag>
+<tag>layer:e2e</tag>
+<tag>severity:critical</tag>
+<tag>smoke</tag>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2025-08-23T21:12:17.499338" elapsed="0.681132"/>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Locked out user sees account locked error" line="23">
+<kw name="Open App" owner="hooks" type="SETUP">
+<kw name="New Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.187714" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2025-08-23T21:12:18.191630" level="INFO">Successfully created context. </msg>
+<msg time="2025-08-23T21:12:18.191696" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.186506" elapsed="0.005331"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-23T21:12:18.674490" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.192040" elapsed="0.482678"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.186121" elapsed="0.488714"/>
+</kw>
+<kw name="Login" owner="auth_keywords">
+<kw name="Fill username" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.676790" level="INFO">Fills the text 'locked_out_user' in the given field.</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.676309" elapsed="0.024250"/>
+</kw>
+<arg>${username}</arg>
+<status status="PASS" start="2025-08-23T21:12:18.676010" elapsed="0.024677"/>
+</kw>
+<kw name="Fill password" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.701840" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<arg>${INPUT_PASSWORD}</arg>
+<arg>${password}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.701359" elapsed="0.008498"/>
+</kw>
+<arg>${password}</arg>
+<status status="PASS" start="2025-08-23T21:12:18.700907" elapsed="0.009106"/>
+</kw>
+<kw name="Click Login" owner="login_page">
+<kw name="Click" owner="Browser">
+<msg time="2025-08-23T21:12:18.711070" level="INFO">Clicks the element 'id=login-button'.</msg>
+<arg>${BTN_LOGIN}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.710593" elapsed="0.051693"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.710237" elapsed="0.052190"/>
+</kw>
+<arg>${USERS.locked_out.username}</arg>
+<arg>${USERS.password}</arg>
+<status status="PASS" start="2025-08-23T21:12:18.675111" elapsed="0.087391"/>
+</kw>
+<kw name="Get Login Error Text" owner="auth_keywords">
+<kw name="Wait For Error Visible" owner="login_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-08-23T21:12:18.769318" level="INFO">Waited for Element with selector css=[data-test="error"] at state visible</msg>
+<arg>${ERROR_MESSAGE}</arg>
+<arg>visible</arg>
+<arg>timeout=5s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.763656" elapsed="0.005875"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.763387" elapsed="0.006267"/>
+</kw>
+<kw name="Get Error Text" owner="login_page">
+<kw name="Get Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.787797" level="INFO">Text: 'Epic sadface: Sorry, this user has been locked out.'</msg>
+<msg time="2025-08-23T21:12:18.788026" level="INFO">${text} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${text}</var>
+<arg>${ERROR_MESSAGE}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.770499" elapsed="0.017573"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-08-23T21:12:18.788223" elapsed="0.000152"/>
+</return>
+<msg time="2025-08-23T21:12:18.788586" level="INFO">${text} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${text}</var>
+<status status="PASS" start="2025-08-23T21:12:18.769893" elapsed="0.018722"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2025-08-23T21:12:18.788670" elapsed="0.000076"/>
+</return>
+<msg time="2025-08-23T21:12:18.788871" level="INFO">${actual_error_message} = Epic sadface: Sorry, this user has been locked out.</msg>
+<var>${actual_error_message}</var>
+<status status="PASS" start="2025-08-23T21:12:18.762887" elapsed="0.026009"/>
+</kw>
+<kw name="Error Message Should Be" owner="auth_keywords">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.789520" elapsed="0.000298"/>
+</kw>
+<arg>${actual_error_message}</arg>
+<arg>Epic sadface: Sorry, this user has been locked out.</arg>
+<status status="PASS" start="2025-08-23T21:12:18.789134" elapsed="0.000763"/>
+</kw>
+<kw name="Cleanup Test" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${TEST_STATUS}' == 'FAIL'</arg>
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.790387" elapsed="0.000169"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.793943" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:18.796545" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:18.799068" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.801095" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-08-23T21:12:18.801718" level="INFO">Switching context to context=a2382557-0851-4e21-9af4-f84adfecfb26 in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.806059" level="INFO">Successfully changed active context: context=a2382557-0851-4e21-9af4-f84adfecfb26</msg>
+<msg time="2025-08-23T21:12:18.810409" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.790658" elapsed="0.019943"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.790136" elapsed="0.020590"/>
+</kw>
+<tag>component:ui</tag>
+<tag>layer:e2e</tag>
+<tag>severity:important</tag>
+<tag>smoke</tag>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2025-08-23T21:12:18.184331" elapsed="0.626524"/>
+</test>
+<status status="PASS" start="2025-08-23T21:12:17.476648" elapsed="1.337666"/>
+</suite>
+<suite id="s1-s1-s1-s2" name="Login Success Negative" source="/home/feb17/vscode/saucelab/tests/ui/login/login_success_negative.robot">
+<test id="s1-s1-s1-s2-t1" name="Invalid password shows message" line="11">
+<kw name="Login" owner="auth_keywords" type="SETUP">
+<kw name="Fill username" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.829181" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<msg time="2025-08-23T21:12:18.835025" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-08-23T21:12:18.835108" level="INFO">See also file:///home/feb17/vscode/saucelab/tests.ui.logout/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-23T21:12:18.835526" level="FAIL">Error: Could not find active page</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.828670" elapsed="0.007840">Error: Could not find active page</status>
+</kw>
+<arg>${username}</arg>
+<status status="FAIL" start="2025-08-23T21:12:18.828296" elapsed="0.008415">Error: Could not find active page</status>
+</kw>
+<kw name="Fill password" owner="login_page">
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-23T21:12:18.836937" elapsed="0.000126"/>
+</kw>
+<kw name="Click Login" owner="login_page">
+<status status="NOT RUN" start="2025-08-23T21:12:18.837258" elapsed="0.000072"/>
+</kw>
+<arg>${USERS.standard.username}</arg>
+<arg>${USERS.password}</arg>
+<status status="FAIL" start="2025-08-23T21:12:18.827265" elapsed="0.010166">Error: Could not find active page</status>
+</kw>
+<kw name="Cleanup Test" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2025-08-23T21:12:18.844388" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-08-23T21:12:18.844530" level="INFO">See also file:///home/feb17/vscode/saucelab/tests.ui.logout/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-23T21:12:18.844657" level="FAIL">Error: Tried to take screenshot, but no page was open.</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.838373" elapsed="0.011897">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<arg>'${TEST_STATUS}' == 'FAIL'</arg>
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.838095" elapsed="0.012317">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.852585" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:18.853873" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:18.855557" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.856988" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2025-08-23T21:12:18.857088" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.850592" elapsed="0.007020"/>
+</kw>
+<status status="FAIL" start="2025-08-23T21:12:18.837741" elapsed="0.020036">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2025-08-23T21:12:18.824901" elapsed="0.033013">Setup failed:
+Error: Could not find active page
+
+Also teardown failed:
+Error: Tried to take screenshot, but no page was open.</status>
+</test>
+<test id="s1-s1-s1-s2-t2" name="Missing username shows message" line="17">
+<kw name="Login" owner="auth_keywords" type="SETUP">
+<kw name="Fill username" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-08-23T21:12:18.864494" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<msg time="2025-08-23T21:12:18.869611" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-08-23T21:12:18.869737" level="INFO">See also file:///home/feb17/vscode/saucelab/tests.ui.logout/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-23T21:12:18.869934" level="FAIL">Error: Could not find active page</msg>
+<arg>${INPUT_USERNAME}</arg>
+<arg>${username}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.864021" elapsed="0.006098">Error: Could not find active page</status>
+</kw>
+<arg>${username}</arg>
+<status status="FAIL" start="2025-08-23T21:12:18.863689" elapsed="0.006575">Error: Could not find active page</status>
+</kw>
+<kw name="Fill password" owner="login_page">
+<arg>${password}</arg>
+<status status="NOT RUN" start="2025-08-23T21:12:18.870455" elapsed="0.000078"/>
+</kw>
+<kw name="Click Login" owner="login_page">
+<status status="NOT RUN" start="2025-08-23T21:12:18.870653" elapsed="0.000044"/>
+</kw>
+<arg>${USERS.standard.username}</arg>
+<arg>${USERS.password}</arg>
+<status status="FAIL" start="2025-08-23T21:12:18.862696" elapsed="0.008076">Error: Could not find active page</status>
+</kw>
+<kw name="Cleanup Test" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2025-08-23T21:12:18.877611" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2025-08-23T21:12:18.877756" level="INFO">See also file:///home/feb17/vscode/saucelab/tests.ui.logout/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-23T21:12:18.877896" level="FAIL">Error: Tried to take screenshot, but no page was open.</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.871682" elapsed="0.006391">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<arg>'${TEST_STATUS}' == 'FAIL'</arg>
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="FAIL" start="2025-08-23T21:12:18.871418" elapsed="0.006757">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.880175" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:18.881261" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:18.882524" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:18.883565" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2025-08-23T21:12:18.883645" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.878341" elapsed="0.005822"/>
+</kw>
+<status status="FAIL" start="2025-08-23T21:12:18.871106" elapsed="0.013218">Error: Tried to take screenshot, but no page was open.</status>
+</kw>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2025-08-23T21:12:18.861055" elapsed="0.023382">Setup failed:
+Error: Could not find active page
+
+Also teardown failed:
+Error: Tried to take screenshot, but no page was open.</status>
+</test>
+<status status="FAIL" start="2025-08-23T21:12:18.816606" elapsed="0.070521"/>
+</suite>
+<status status="FAIL" start="2025-08-23T21:12:17.475954" elapsed="1.413447"/>
+</suite>
+<suite id="s1-s1-s2" name="Logout" source="/home/feb17/vscode/saucelab/tests/ui/logout">
+<suite id="s1-s1-s2-s1" name="Logout Success" source="/home/feb17/vscode/saucelab/tests/ui/logout/logout_success.robot">
+<test id="s1-s1-s2-s1-t1" name="Logout succeeds by using Logout in menu bar" line="11">
+<kw name="Open App" owner="hooks" type="SETUP">
+<kw name="New Context" owner="Browser">
+<msg time="2025-08-23T21:12:18.902151" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2025-08-23T21:12:18.906319" level="INFO">Successfully created context. </msg>
+<msg time="2025-08-23T21:12:18.906384" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.900977" elapsed="0.005590"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-08-23T21:12:19.728941" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-08-23T21:12:18.906762" elapsed="0.822435"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:18.900645" elapsed="0.828669"/>
+</kw>
+<kw name="Logout" owner="auth_keywords">
+<kw name="Open Menu" owner="home_page">
+<kw name="Click" owner="Browser">
+<msg time="2025-08-23T21:12:19.730789" level="INFO">Clicks the element 'css=[id="react-burger-menu-btn"]'.</msg>
+<msg time="2025-08-23T21:12:29.816225" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2025-08-23T21:12:29.816303" level="INFO">See also file:///home/feb17/vscode/saucelab/tests.ui.logout/playwright-log.txt for additional details.</msg>
+<msg time="2025-08-23T21:12:29.816486" level="FAIL">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[id="react-burger-menu-btn"]')
+</msg>
+<arg>${BURGER_MENU}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="FAIL" start="2025-08-23T21:12:19.730285" elapsed="10.086390">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[id="react-burger-menu-btn"]')
+</status>
+</kw>
+<status status="FAIL" start="2025-08-23T21:12:19.730044" elapsed="10.086788">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[id="react-burger-menu-btn"]')
+</status>
+</kw>
+<kw name="Click Logout" owner="home_page">
+<status status="NOT RUN" start="2025-08-23T21:12:29.817034" elapsed="0.000084"/>
+</kw>
+<status status="FAIL" start="2025-08-23T21:12:19.729635" elapsed="10.087568">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[id="react-burger-menu-btn"]')
+</status>
+</kw>
+<kw name="Should land on login page" owner="auth_keywords">
+<status status="NOT RUN" start="2025-08-23T21:12:29.817401" elapsed="0.000063"/>
+</kw>
+<kw name="Cleanup Test" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Take Screenshot" owner="Browser">
+<msg time="2025-08-23T21:12:29.885168" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.818243" elapsed="0.067044"/>
+</kw>
+<arg>'${TEST_STATUS}' == 'FAIL'</arg>
+<arg>Take Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.817991" elapsed="0.067382"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:29.888500" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:29.890350" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:29.892830" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:29.894924" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-08-23T21:12:29.895533" level="INFO">Switching context to context=3224326a-fdea-434f-8d87-6d4ce6c4d75f in CURRENT</msg>
+<msg time="2025-08-23T21:12:29.899846" level="INFO">Successfully changed active context: context=3224326a-fdea-434f-8d87-6d4ce6c4d75f</msg>
+<msg time="2025-08-23T21:12:29.903772" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.885528" elapsed="0.018541"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:29.817695" elapsed="0.086599"/>
+</kw>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2025-08-23T21:12:18.899047" elapsed="11.005398">TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('[id="react-burger-menu-btn"]')
+</status>
+</test>
+<status status="FAIL" start="2025-08-23T21:12:18.890823" elapsed="11.017823"/>
+</suite>
+<status status="FAIL" start="2025-08-23T21:12:18.889817" elapsed="11.020700"/>
+</suite>
+<status status="FAIL" start="2025-08-23T21:12:17.474956" elapsed="12.436049"/>
+</suite>
+<kw name="Cleanup App" owner="hooks" type="TEARDOWN">
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close Page" owner="Browser">
+<msg time="2025-08-23T21:12:29.913754" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:29.915251" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:29.915852" level="INFO">Switching browser to browser=610effcc-aed6-4b23-aa6f-d01e9fd08e2d</msg>
+<msg time="2025-08-23T21:12:29.918196" level="INFO">Successfully changed active browser: browser=610effcc-aed6-4b23-aa6f-d01e9fd08e2d</msg>
+<msg time="2025-08-23T21:12:29.918308" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:29.919391" level="INFO">Returned info that no contexts are open</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the ``page`` in ``context`` in ``browser``.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.911989" elapsed="0.007545"/>
+</kw>
+<arg>Close Page</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.911817" elapsed="0.007817"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close Context" owner="Browser">
+<msg time="2025-08-23T21:12:29.921908" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-08-23T21:12:29.923195" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-08-23T21:12:29.924355" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-08-23T21:12:29.925479" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2025-08-23T21:12:29.925563" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.920019" elapsed="0.006109"/>
+</kw>
+<arg>Close Context</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.919780" elapsed="0.006446"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Close Browser" owner="Browser">
+<msg time="2025-08-23T21:12:29.942538" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.926644" elapsed="0.016025"/>
+</kw>
+<arg>Close Browser</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2025-08-23T21:12:29.926382" elapsed="0.016376"/>
+</kw>
+<status status="PASS" start="2025-08-23T21:12:29.911535" elapsed="0.031342"/>
+</kw>
+<status status="FAIL" start="2025-08-23T21:12:17.003272" elapsed="12.939647"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">component:ui</stat>
+<stat pass="2" fail="0" skip="0">layer:e2e</stat>
+<stat pass="1" fail="0" skip="0">severity:critical</stat>
+<stat pass="1" fail="0" skip="0">severity:important</stat>
+<stat pass="2" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="2" fail="3" skip="0">Tests</stat>
+<stat name="Ui" id="s1-s1" pass="2" fail="3" skip="0">Tests.Ui</stat>
+<stat name="Login" id="s1-s1-s1" pass="2" fail="2" skip="0">Tests.Ui.Login</stat>
+<stat name="Login Success" id="s1-s1-s1-s1" pass="2" fail="0" skip="0">Tests.Ui.Login.Login Success</stat>
+<stat name="Login Success Negative" id="s1-s1-s1-s2" pass="0" fail="2" skip="0">Tests.Ui.Login.Login Success Negative</stat>
+<stat name="Logout" id="s1-s1-s2" pass="0" fail="1" skip="0">Tests.Ui.Logout</stat>
+<stat name="Logout Success" id="s1-s1-s2-s1" pass="0" fail="1" skip="0">Tests.Ui.Logout.Logout Success</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-08-23T21:12:17.001143" level="ERROR">Error in file '/home/feb17/vscode/saucelab/tests/ui/logout/logout_success.robot' on line 7: Setting 'Test Template' accepts only one value, got 3.</msg>
+</errors>
+</robot>
