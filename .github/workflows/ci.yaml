@@ -26,8 +26,8 @@ jobs:
           USERNAME: ${{ secrets.STANDARD_USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
           LOCKED_OUT_USER: ${{ secrets.LOCKED_OUT_USER }}
-          INVALID_USER: ${{ INVALID_USER }}
-          INVALID_PASSWORD: ${{ INVALID_PASSWORD }}
+          INVALID_USER: ${{ secrets.INVALID_USER }}
+          INVALID_PASSWORD: ${{ secrets.INVALID_PASSWORD }}
           BASE_URL: "https://www.saucedemo.com"
         run: |
           source .venv/bin/activate
