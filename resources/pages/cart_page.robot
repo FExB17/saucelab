@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Browser
-Library    ../../.venv/lib/python3.10/site-packages/robot/libraries/Collections.py
+Library    Collections
 Resource    ../pages/item_page.robot
 Resource    inventory_page.robot
 

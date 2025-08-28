@@ -15,7 +15,7 @@ HEADLESS = get_any("HEADLESS", default="true").lower() == "true"
 
 # App / Credentials (alias-tolerant)
 BASE_URL          = get_any("BASE_URL", required=True)
-STANDARD_USERNAME = get_any("STANDARD_USERNAME", "STANDARD_USER", "USERNAME", required=True)
+STANDARD_USERNAME = get_any("STANDARD_USER", required=True)
 PASSWORD          = get_any("PASSWORD", required=True)
 LOCKED_OUT_USER   = get_any("LOCKED_OUT_USER", required=True)
 INVALID_USER      = get_any("INVALID_USER", required=True)
