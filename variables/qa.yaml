@@ -1,0 +1,12 @@
+BASE_URL: https://www.saucedemo.com
+BROWSER: chromium
+HEADLESS: false
+USERS:
+  password: secret_sauce
+  standard:
+    username: standard_user
+  locked_out: 
+    username: locked_out_user
+  invalid:
+    username: wronguser
+    password: wrongpassword
