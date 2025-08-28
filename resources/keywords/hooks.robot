@@ -1,6 +1,5 @@
 *** Settings ***
-Library    Browser
-Variables  ../../variables/qa.yaml   
+Library    Browser 
 Resource    ../pages/login_page.robot
 Resource    auth_keywords.robot
 

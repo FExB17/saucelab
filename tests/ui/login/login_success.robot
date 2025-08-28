@@ -5,7 +5,6 @@ Library             Browser
 Resource            ../../../resources/keywords/auth_keywords.robot
 Resource            ../../../resources/keywords/hooks.robot
 
-Variables           ../../../variables/qa.yaml
 Variables           ../../../variables/expected_values.yaml
 
 

@@ -1,3 +1,5 @@
 robot:
   outputdir: reports
+  variablefiles:
+    - variables/qa.yaml
 
