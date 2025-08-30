@@ -1,6 +1,7 @@
 set -euo pipefail
 
 robot \
-  -V variables/env_or_file.py \
+  -V variables/qa.yaml \
+  -V variables/secrets.py \
   -d reports \
   tests/

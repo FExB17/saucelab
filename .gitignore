@@ -19,12 +19,12 @@ log/
 *.zip                   
 trace/
 traces/
+run_specific.sh
 
 # Env/Secrets
 .env
 *.secret.*
 secrets/*
-variables/qa.yaml
 variables/*secret*.*
 variables/*.local.yaml
 

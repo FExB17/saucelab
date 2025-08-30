@@ -1,4 +1,9 @@
 robot:
   outputdir: reports
-  variablefiles:
-    - variables/env_or_file.py
+variablesfile:
+  - variables/qa.yaml
+  - variables/secrets.py
+pythonpath:
+  - variables
+python:
+  executable: .venv/bin/python 
