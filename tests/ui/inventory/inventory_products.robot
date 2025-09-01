@@ -38,3 +38,14 @@ Products Sort A To Z
     [Tags]    component:ui    regression    severity:medium    jira:SC-44
     Set Sort Option    Name (A to Z)
     Inventory List Should Be Alphabetically Sorted From A to Z
+
+
+
+Reset App State Empties Cart
+    [Tags]    component:ui    regression    severity:medium    jira:SL-UI-019
+    Ensure Cart Is Empty
+    Add To Cart     Sauce Labs Backpack
+    Reset Application State
+    Expect Cart Is Empty
+    Expect Cart Badge Is Empty
+    Expect Product Button Is    Sauce Labs Backpack    Add to cart
