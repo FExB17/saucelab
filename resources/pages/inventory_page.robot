@@ -1,6 +1,7 @@
 *** Settings ***
-Library     Browser
+Library    Browser
 Library    String
+Library    Collections
 
 
 *** Variables ***
@@ -8,7 +9,8 @@ ${HEADING_PRODUCTS}=        css=[data-test="title"]
 ${ITEM_INVENTORY}=          css=[data-test="inventory-item"]
 ${LINK__SHOPPING_CART}=     css.shopping_cart_link
 ${BADGE_SHOPPING_CART}=     css=[data-test="shopping-cart-badge"]
-#TODO make dynamic locators
+${BTN_SORT}                css=[data-test="product-sort-container"]
+${ITEM_NAMES}                css=[data-test="inventory-item-name"]
 
 
 *** Keywords ***
@@ -52,13 +54,14 @@ Get Click Button For Product
     ${slug}    Slugify Product Name    ${product_name}
     RETURN    css=[data-test="inventory-item-${slug}-img"]
     
-
-
-
-
-
-    
-
+Get Texts
+    [Arguments]    @{items}
+    @{item_texts}    Create List
+    FOR    ${item}    IN    @{items}
+        ${text}    Get Text    ${item}
+        Append To List    ${item_texts}    ${text}
+    END
+    RETURN    @{item_texts}
 
 
     

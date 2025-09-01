@@ -1,8 +1,10 @@
 *** Settings ***
 Library    Browser
 Library    OperatingSystem
+Library    ../../.venv/lib/python3.10/site-packages/robot/libraries/Collections.py
 Resource    ../pages/inventory_page.robot
 Resource    ../pages/home_page.robot
+Resource    ../pages/cart_page.robot
 
 *** Keywords ***
 Product Count Should Be
@@ -53,6 +55,20 @@ Open Product Details
     ${selector}    Get Click Button For Product    ${product_name}
     Click    ${selector}
     
+Set Sort Option
+    [Arguments]    ${label}
+    Select Options By   ${BTN_SORT}    text    ${label}
 
-    
-    
+
+Inventory List Should Be Alphabetically Sorted From A to Z
+    Get Text 
+    @{elements}    Get Elements    ${ITEM_NAMES}
+   @{names}    Get Texts   @{elements}
+   @{lower_names}    Create List
+   FOR    ${n}    IN    @{names}
+       ${l}    Convert To Lower Case    ${n}
+       Append To List    ${lower_names}    ${l}
+   END
+   @{sorted_names}    Copy List    ${lower_names}
+   Sort List    ${sorted_names}
+   Lists Should Be Equal    ${sorted_names}    ${lower_names}

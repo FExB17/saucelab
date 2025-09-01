@@ -37,6 +37,4 @@ Product Details Page Shows Correct Data
 Products Sort A To Z
     [Tags]    component:ui    regression    severity:medium    jira:SC-44
     Set Sort Option    Name (A to Z)
-    Inventory List Should Be Alphabetically Sorted
-
-
+    Inventory List Should Be Alphabetically Sorted From A to Z
