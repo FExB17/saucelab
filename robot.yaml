@@ -1,4 +1,0 @@
-robot:
-  outputdir: reports
-  variablefiles:
-    - variables/env_or_file.py

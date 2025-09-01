@@ -1,12 +1,21 @@
 {
+  // gleiche venv überall
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "robot.python.executable": "${workspaceFolder}/.venv/bin/python",
+  "robot.language-server.python": "${workspaceFolder}/.venv/bin/python",
+
+  // Suchpfade für Resources/Libs/Variables
+  "robot.pythonpath": [
+    "${workspaceFolder}/resources",
+    "${workspaceFolder}/libs",
+    "${workspaceFolder}/variables"
+  ],
+  "python.envFile": "${workspaceFolder}/.env",
+
+  // dein Lint/Format Setup
   "robot.lint.robocop.enabled": false,
   "robot.lint.robocop.executable": "${workspaceFolder}/.venv/bin/robocop",
-  "robot.lint.robocop.args": [
-    "-c",
-    "config/robocop.toml"
-  ],
+  "robot.lint.robocop.args": ["-c", "config/robocop.toml"],
   "robot.formatting.provider": "robotidy",
   "robot.formatting.robotidy.path": "${workspaceFolder}/.venv/bin/robotidy",
   "editor.formatOnSave": true

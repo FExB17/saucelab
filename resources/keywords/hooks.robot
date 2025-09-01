@@ -3,6 +3,8 @@ Library    Browser
 Resource    ../pages/login_page.robot
 Resource    auth_keywords.robot
 
+Variables    ../../variables/qa.yaml
+
 *** Keywords ***
 Open Browser Session
     New Browser    ${BROWSER}    headless=${HEADLESS}
