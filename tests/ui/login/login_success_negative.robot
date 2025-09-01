@@ -3,7 +3,8 @@ Library             Browser
 Resource            ../../../resources/keywords/auth_keywords.robot
 Resource            ../../../resources/keywords/hooks.robot
 
-
+*** Variables ***
+${STANDARD_USER}    %{STANDARD_USER}    
 
 *** Test Cases *** 
 Invalid password shows message

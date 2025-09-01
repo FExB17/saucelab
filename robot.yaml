@@ -1,9 +1,0 @@
-robot:
-  outputdir: reports
-variablesfile:
-  - variables/qa.yaml
-  - variables/secrets.py
-pythonpath:
-  - variables
-python:
-  executable: .venv/bin/python 
