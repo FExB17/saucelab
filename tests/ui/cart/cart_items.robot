@@ -11,7 +11,7 @@ Resource    ../../../resources/keywords/hooks.robot
 
 *** Test Cases ***
 Cart Displays Added Items Correctly
-    [Tags]    component:ui    smoke    regression    severity:high    jira:SL-UI-009
+    [Tags]    component:ui    smoke    regression    severity:high    jira:SC-37
     Add To Cart    Sauce Labs Bike Light
     Add To Cart    Sauce Labs Backpack
     Go To Cart

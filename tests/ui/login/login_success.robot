@@ -19,4 +19,4 @@ Locked out user sees account locked error
     [Tags]   smoke   component:ui   layer:e2e   severity:important
     Login    %{LOCKED_OUT_USER}      %{PASSWORD}
     ${actual_error_message}=    Get Login Error Text
-    Error Message Should Be     ${actual_error_message}    Epic sadface: Sorry, this user has been locked out.
+    Error Message Should Be     ${actual_error_message}    ${LOGIN.LOCKED_OUT_USER}
