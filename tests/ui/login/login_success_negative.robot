@@ -2,18 +2,18 @@
 Library             Browser
 Resource            ../../../resources/keywords/auth_keywords.robot
 Resource            ../../../resources/keywords/hooks.robot
+Variables            ../../../variables/expected_error_messages.yaml
 
-*** Variables ***
-${STANDARD_USER}    %{STANDARD_USER}    
+ 
 
 *** Test Cases *** 
 Invalid password shows message
     Login    ${STANDARD_USER}   ${INVALID_PASSWORD}
      ${actual_error_message}=    Get Login Error Text
-    Error Message Should Be     ${actual_error_message}    Epic sadface: Username and password do not match any user in this service
+    Error Message Should Be     ${actual_error_message}    ${LOGIN.INVALID_PASSWORD}
       
 
 Missing username shows message         
     Login    ${EMPTY}   ${PASSWORD}
      ${actual_error_message}=    Get Login Error Text
-    Error Message Should Be     ${actual_error_message}    Epic sadface: Username is required
+    Error Message Should Be     ${actual_error_message}    ${LOGIN.MISSING_USERNAME}

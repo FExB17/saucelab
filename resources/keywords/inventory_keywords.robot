@@ -2,6 +2,7 @@
 Library    Browser
 Library    OperatingSystem
 Resource    ../pages/inventory_page.robot
+Resource    ../pages/home_page.robot
 
 *** Keywords ***
 Product Count Should Be
@@ -11,11 +12,18 @@ Product Count Should Be
 
 
 Add To Cart
-    [Arguments]    ${product_name}
-    ${selector}=     Get Add Button Selector For Product    ${product_name}
-    Wait For Elements State    ${selector}    visible    5s
-    Click    ${selector}
+    [Arguments]    @{product_name}
+    FOR    ${product}    IN    @{product_name}
+        ${selector}=     Get Add Button Selector For Product    ${product}
+        Wait For Elements State    ${selector}    visible    5s
+        Log To Console    ${selector}
+        Click    ${selector}
+    END
 
+Add To Items And Open Cart
+    [Arguments]    @{product_name}
+    Add To Cart    @{product_name}
+    Go To Cart
 
 Cart Badge Should Be
     [Arguments]    ${expected}
