@@ -5,6 +5,9 @@ robotframework==7.0.1
 robotframework-browser==18.6.0
 playwright==1.48.0
 
+# Für Secrets
+python-dotenv==1.0.1
+
 # Für JSON/YAML Testdaten
 PyYAML==6.0.2
 jsonschema==4.23.0
