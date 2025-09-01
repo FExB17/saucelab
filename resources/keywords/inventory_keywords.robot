@@ -61,7 +61,6 @@ Set Sort Option
 
 
 Inventory List Should Be Alphabetically Sorted From A to Z
-    Get Text 
     @{elements}    Get Elements    ${ITEM_NAMES}
    @{names}    Get Texts   @{elements}
    @{lower_names}    Create List
