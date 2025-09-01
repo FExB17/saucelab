@@ -20,7 +20,7 @@ Add To Cart
         Click    ${selector}
     END
 
-Add To Cart And Open
+Add To Items And Open Cart
     [Arguments]    @{product_name}
     Add To Cart    @{product_name}
     Go To Cart
