@@ -5,4 +5,4 @@ Suite Setup     Open Browser Session
 Suite Teardown  Cleanup App
 Test Setup      Open App and Login
 Test Teardown   Cleanup Test
-Test Timeout    2 minutes
+Test Timeout    2 minutes 

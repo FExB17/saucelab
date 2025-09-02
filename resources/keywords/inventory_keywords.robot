@@ -18,7 +18,6 @@ Add To Cart
     FOR    ${product}    IN    @{product_name}
         ${selector}=     Get Add Button Selector For Product    ${product}
         Wait For Elements State    ${selector}    visible    5s
-        Log To Console    ${selector}
         Click    ${selector}
     END
 
