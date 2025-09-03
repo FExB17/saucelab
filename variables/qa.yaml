@@ -1,4 +1,4 @@
 BASE_URL: https://www.saucedemo.com
 BROWSER: chromium
-HEADLESS: false
+HEADLESS: flase
 SLOWMO: 0
