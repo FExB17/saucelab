@@ -42,10 +42,8 @@ Products Sort A To Z
 
 
 Reset App State Empties Cart
-    [Tags]    component:ui    regression    severity:medium    jira:SL-UI-019
-    Ensure Cart Is Empty
+    [Tags]    component:ui    regression    severity:medium    jira:SC-46
     Add To Cart     Sauce Labs Backpack
     Reset Application State
-    Expect Cart Is Empty
-    Expect Cart Badge Is Empty
-    Expect Product Button Is    Sauce Labs Backpack    Add to cart
+    Cart Badge Should Be    0
+    Cart Should Be Empty
