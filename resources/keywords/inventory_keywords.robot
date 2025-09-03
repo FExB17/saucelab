@@ -1,7 +1,7 @@
 *** Settings ***
 Library    Browser
 Library    OperatingSystem
-Library    ../../.venv/lib/python3.10/site-packages/robot/libraries/Collections.py
+Library    Collections
 Resource    ../pages/inventory_page.robot
 Resource    ../pages/home_page.robot
 Resource    ../pages/cart_page.robot
@@ -18,7 +18,6 @@ Add To Cart
     FOR    ${product}    IN    @{product_name}
         ${selector}=     Get Add Button Selector For Product    ${product}
         Wait For Elements State    ${selector}    visible    5s
-        Log To Console    ${selector}
         Click    ${selector}
     END
 
@@ -29,17 +28,21 @@ Add To Items And Open Cart
 
 Cart Badge Should Be
     [Arguments]    ${expected}
-    IF    ${expected} > 0
+    IF    $expected == 'INVISIBLE'
+        Wait For Elements State    ${BADGE_SHOPPING_CART}    hidden    5s
+    ELSE
         Wait For Elements State    ${BADGE_SHOPPING_CART}    visible    5s
         ${actual}=    Get Text    ${BADGE_SHOPPING_CART}
         Should Be Equal As Numbers    ${actual}    ${expected}
-    ELSE
-        Wait For Elements State    ${BADGE_SHOPPING_CART}    hidden    5s
     END
 
 Product Button Text Should Be
     [Arguments]    ${product_name}    ${expected}
-    ${selector}=    Get Remove Button Selector For Product    ${product_name}
+    IF    '$expected == Remove'
+        ${selector}=    Get Remove Button Selector For Product    ${product_name}
+    ELSE
+        ${selector}=    Get Add Button Selector For Product    ${product_name}
+    END
     Wait For Elements State    ${selector}     visible    5s
     ${actual}=    Get Text    ${selector}
     Should Be Equal As Strings    ${actual}    ${expected}
@@ -71,3 +74,14 @@ Inventory List Should Be Alphabetically Sorted From A to Z
    @{sorted_names}    Copy List    ${lower_names}
    Sort List    ${sorted_names}
    Lists Should Be Equal    ${sorted_names}    ${lower_names}
+
+
+Reset Application State
+    Open Menu
+    Click Reset
+
+Cart Should Be Empty
+    Go To Cart
+    ${element_count}    Get Element Count    ${TITLE_CART_ITEM}
+    Should Be Equal As Integers    ${element_count}    0
+

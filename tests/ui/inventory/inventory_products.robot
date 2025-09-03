@@ -25,7 +25,7 @@ Cart Badge Disappears When No Products Left
     [Tags]    component:ui    regression    severity:medium    jira:SC-35
     Add To Cart    Sauce Labs Backpack
     Remove Product From Cart    Sauce Labs Backpack
-    Cart Badge Should Be    0
+    Cart Badge Should Be    INVISIBLE
 
 Product Details Page Shows Correct Data
     [Tags]    component:ui    regression    severity:medium    jira:SC-36
@@ -38,3 +38,12 @@ Products Sort A To Z
     [Tags]    component:ui    regression    severity:medium    jira:SC-44
     Set Sort Option    Name (A to Z)
     Inventory List Should Be Alphabetically Sorted From A to Z
+
+
+
+Reset App State Empties Cart
+    [Tags]    component:ui    regression    severity:medium    jira:SC-46
+    Add To Cart     Sauce Labs Backpack
+    Reset Application State
+    Cart Badge Should Be    INVISIBLE 
+    Cart Should Be Empty

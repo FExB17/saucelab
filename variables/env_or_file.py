@@ -23,7 +23,7 @@ def get_var(name, default=None, required=False):
 
 # Export variables for Robot
 BROWSER = get_var("BROWSER", default="chromium")
-HEADLESS = get_var("HEADLESS", default="true")
+HEADLESS = get_var("HEADLESS",default= False)
 BASE_URL = get_var("BASE_URL", required=True)
 STANDARD_USER = get_var("STANDARD_USER", required=True)
 PASSWORD = get_var("PASSWORD", required=True)

@@ -7,7 +7,7 @@ Variables    ../../variables/qa.yaml
 
 *** Keywords ***
 Open Browser Session
-    New Browser    ${BROWSER}    headless=${HEADLESS}
+    New Browser    ${BROWSER}    headless=${HEADLESS}    slowMo=${SLOWMO}
 
 Open App
     New Context

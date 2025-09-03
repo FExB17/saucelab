@@ -4,7 +4,6 @@ Resource    ../../../resources/keywords/cart_keywords.robot
 Resource    ../../../resources/keywords/inventory_keywords.robot
 Resource    ../../../resources/pages/home_page.robot
 Resource    ../../../resources/pages/cart_page.robot
-
 Resource    ../../../resources/keywords/hooks.robot
 
 
