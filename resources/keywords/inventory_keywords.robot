@@ -28,20 +28,20 @@ Add To Items And Open Cart
 
 Cart Badge Should Be
     [Arguments]    ${expected}
-    IF    ${expected} > 0
+    IF    $expected == 'INVISIBLE'
+        Wait For Elements State    ${BADGE_SHOPPING_CART}    hidden    5s
+    ELSE
         Wait For Elements State    ${BADGE_SHOPPING_CART}    visible    5s
         ${actual}=    Get Text    ${BADGE_SHOPPING_CART}
         Should Be Equal As Numbers    ${actual}    ${expected}
-    ELSE
-        Wait For Elements State    ${BADGE_SHOPPING_CART}    hidden    5s
     END
 
 Product Button Text Should Be
     [Arguments]    ${product_name}    ${expected}
-    IF    '$expected == Add to cart'
-        ${selector}=    Get Add Button Selector For Product    ${product_name}
-    ELSE
+    IF    '$expected == Remove'
         ${selector}=    Get Remove Button Selector For Product    ${product_name}
+    ELSE
+        ${selector}=    Get Add Button Selector For Product    ${product_name}
     END
     Wait For Elements State    ${selector}     visible    5s
     ${actual}=    Get Text    ${selector}
